@@ -13,6 +13,9 @@ object Network  {
 
         defaultRequest {
             url("https://api.openweathermap.org/data/2.5")
+            url{
+                parameters.append("appid","50a4affe1da8577cce64acffaa91bdb6")
+            }
         }
 
         install(Logging){
