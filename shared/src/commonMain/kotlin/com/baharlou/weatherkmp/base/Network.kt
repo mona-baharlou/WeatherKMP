@@ -16,7 +16,7 @@ object Network  {
         expectSuccess = true
 
         defaultRequest {
-            url("https://api.openweathermap.org/data/2.5")
+            url("https://api.openweathermap.org/data/2.5/")
             url{
                 parameters.append("appid", BuildKonfig.API_KEY)
                 parameters.append("lat", "35.6892523")

@@ -6,8 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ForecastDTO(
     @SerialName("list")
-    val list: List<ForecastItemDTO>
-
+    val forecasts: List<ForecastItemDTO>
 )
 
 @Serializable
