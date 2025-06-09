@@ -7,10 +7,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.baharlou.weatherkmp.Greeting
 import com.baharlou.weatherkmp.usecase.GetWeatherForecastUseCase
+import com.baharlou.weatherkmp.viewmodel.ForecastViewModel
 import io.github.aakira.napier.Napier
 
 class MainActivity : ComponentActivity() {
@@ -22,17 +25,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LaunchedEffect(true) {
-                        GetWeatherForecastUseCase().invoke().fold (
-                            onSuccess = {
-                                Napier.d(it.toString(), tag = "API_CALL_RRESPONSE")
-                            },
-                            onFailure = {
-                                Napier.d(it.toString(), tag = "API_CALL_RRESPONSE")
-                            }
-                        )
+
+                    val viewModel: ForecastViewModel = viewModel()
+                    val uiState by viewModel.uiState.collectAsState()
+
+                   /* if(uiState.loading)
+                    {
+                        Napier.d("Loading...")
                     }
-                    GreetingView(Greeting().greet())
+*/
+                        GreetingView(Greeting().greet())
                 }
             }
         }
