@@ -1,20 +1,27 @@
 package com.baharlou.weatherkmp.base
 
+import com.baharlou.weatherkmp.BuildKonfig
 import io.ktor.client.HttpClient
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 
 object Network  {
 
     val httpClient = HttpClient{
-        exceptSuccess = true
+        expectSuccess = true
 
         defaultRequest {
             url("https://api.openweathermap.org/data/2.5")
             url{
-                parameters.append("appid","50a4affe1da8577cce64acffaa91bdb6")
+                parameters.append("appid", BuildKonfig.API_KEY)
+                parameters.append("lat", "35.6892523")
+                parameters.append("lon", "51.3896004")
+                parameters.append("units", "metric")
             }
         }
 

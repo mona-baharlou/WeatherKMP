@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import com.codingfeline.buildkonfig.compiler.FieldSpec
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -65,8 +67,10 @@ android {
 }
 
 buildkonfig {
-    packageName = "com.example.weather"
+    packageName = "com.baharlou.weatherkmp"
     defaultConfigs {
 
+        val apiKey:String = gradleLocalProperties(rootDir, providers).getProperty("API_KEY")
+        buildConfigField(FieldSpec.Type.STRING, "API_KEY", apiKey)
     }
 }
