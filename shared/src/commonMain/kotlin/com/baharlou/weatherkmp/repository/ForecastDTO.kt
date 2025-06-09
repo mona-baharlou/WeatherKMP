@@ -1,0 +1,20 @@
+package com.baharlou.weatherkmp.repository
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class ForecastDTO(
+    @SerialName("list")
+    val list: List<ForecastItemDTO>
+
+)
+
+@Serializable
+data class ForecastItemDTO(
+    @SerialName("dt_txt")
+    val dtTxt: String,
+    val main: MainDTO,
+    val weather: List<WeatherDTO>
+
+)
