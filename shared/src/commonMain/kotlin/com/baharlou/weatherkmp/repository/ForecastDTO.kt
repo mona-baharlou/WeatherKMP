@@ -12,7 +12,7 @@ data class ForecastDTO(
 @Serializable
 data class ForecastItemDTO(
     @SerialName("dt_txt")
-    val dtTxt: String,
+    val date: String,
     val main: MainDTO,
     val weather: List<WeatherDTO>
 

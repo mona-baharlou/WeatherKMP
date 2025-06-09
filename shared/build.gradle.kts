@@ -33,12 +33,15 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            api(libs.napier)
+
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.plugin.logging)
             implementation(libs.ktor.plugin.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
-            api(libs.napier)
+            implementation(libs.lifecycle.viewmodel)
+
 
         }
         commonTest.dependencies {
