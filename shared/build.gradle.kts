@@ -38,6 +38,7 @@ kotlin {
             implementation(libs.ktor.plugin.logging)
             implementation(libs.ktor.plugin.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
+            api(libs.napier)
 
         }
         commonTest.dependencies {

@@ -6,9 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.baharlou.weatherkmp.Greeting
+import com.baharlou.weatherkmp.usecase.GetWeatherForecastUseCase
+import io.github.aakira.napier.Napier
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +22,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    LaunchedEffect(true) {
+                        GetWeatherForecastUseCase().invoke().fold (
+                            onSuccess = {
+                                Napier.d(it.toString(), tag = "API_CALL_RRESPONSE")
+                            },
+                            onFailure = {
+                                Napier.d(it.toString(), tag = "API_CALL_RRESPONSE")
+                            }
+                        )
+                    }
                     GreetingView(Greeting().greet())
                 }
             }

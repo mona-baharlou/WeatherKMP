@@ -1,6 +1,7 @@
 package com.baharlou.weatherkmp.base
 
 import com.baharlou.weatherkmp.BuildKonfig
+import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -10,14 +11,14 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-object Network  {
+object Network {
 
-    val httpClient = HttpClient{
+    val httpClient = HttpClient {
         expectSuccess = true
 
         defaultRequest {
             url("https://api.openweathermap.org/data/2.5/")
-            url{
+            url {
                 parameters.append("appid", BuildKonfig.API_KEY)
                 parameters.append("lat", "35.6892523")
                 parameters.append("lon", "51.3896004")
@@ -25,11 +26,10 @@ object Network  {
             }
         }
 
-        install(Logging){
-            logger = object: Logger{
+        install(Logging) {
+            logger = object : Logger {
                 override fun log(message: String) {
-                    TODO("Not yet implemented")
-                    //Nappier.d(message)
+                    Napier.d(message)
                 }
 
             }
@@ -37,8 +37,8 @@ object Network  {
             level = LogLevel.ALL
         }
 
-        install(ContentNegotiation){
-            json(Json{
+        install(ContentNegotiation) {
+            json(Json {
                 prettyPrint = true
                 isLenient = true
                 ignoreUnknownKeys = true
