@@ -9,6 +9,7 @@ coroutines = "1.9.0"
 buildKonfig = "0.17.1"
 napier = "2.7.1"
 lifecycle="2.8.4"
+koin= "4.0.3"
 
 
 [libraries]
@@ -29,6 +30,13 @@ ktor-serialization-kotlinx-json = {module = "io.ktor:ktor-serialization-kotlinx-
 
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+
+
+
+
 
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }

@@ -41,6 +41,7 @@ kotlin {
             implementation(libs.ktor.plugin.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.lifecycle.viewmodel)
+            implementation(libs.koin.core)
 
 
         }
@@ -50,6 +51,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.koin.android)
         }
 
         iosMain.dependencies {

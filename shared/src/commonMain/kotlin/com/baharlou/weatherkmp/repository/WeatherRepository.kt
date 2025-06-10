@@ -1,12 +1,12 @@
 package com.baharlou.weatherkmp.repository
 
-import com.baharlou.weatherkmp.base.Network
+import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 
-class WeatherRepository : IWeatherRepository {
+class WeatherRepository(private val httpClient: HttpClient) : IWeatherRepository {
 
-    private val httpClient = Network.httpClient
+    //private val httpClient = Network.httpClient
 
     override suspend fun getCurWeather(): Result<CurWeatherDTO> {
 

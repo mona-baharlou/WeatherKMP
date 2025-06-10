@@ -5,14 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.baharlou.weatherkmp.Greeting
-import com.baharlou.weatherkmp.usecase.GetWeatherForecastUseCase
 import com.baharlou.weatherkmp.viewmodel.ForecastViewModel
 import io.github.aakira.napier.Napier
 
@@ -27,14 +24,21 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     val viewModel: ForecastViewModel = viewModel()
-                    val uiState by viewModel.uiState.collectAsState()
+                    /*val uiState by viewModel.uiState.collectAsState()
 
-                   /* if(uiState.loading)
-                    {
-                        Napier.d("Loading...")
+                    if (uiState.loading) {
+                        Napier.d("Loading...", tag = "VIEWMODEL_RESULT")
                     }
-*/
-                        GreetingView(Greeting().greet())
+
+                    if (uiState.failed != null) {
+                        Napier.d("Failed", tag = "VIEWMODEL_RESULT")
+                    }
+
+                    uiState.items.forEach {
+                        Napier.d(it.toString(), tag = "VIEWMODEL_RESULT")
+                    }
+
+*/                    GreetingView(Greeting().greet())
                 }
             }
         }

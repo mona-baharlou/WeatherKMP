@@ -2,6 +2,7 @@ package com.baharlou.weatherkmp.usecase
 
 import com.baharlou.weatherkmp.repository.CurWeatherDTO
 import com.baharlou.weatherkmp.repository.ForecastDTO
+import com.baharlou.weatherkmp.repository.IWeatherRepository
 import com.baharlou.weatherkmp.repository.WeatherRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -10,8 +11,8 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 
-class GetWeatherForecastUseCase {
-    private val repository = WeatherRepository()
+class GetWeatherForecastUseCase(private val repository: IWeatherRepository) {
+   // private val repository = WeatherRepository()
 
     suspend operator fun invoke(dispatcher: CoroutineDispatcher = Dispatchers.IO): Result<Pair<CurWeatherDTO, ForecastDTO>> {
 

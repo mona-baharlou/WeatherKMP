@@ -11,12 +11,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class ForecastViewModel : ViewModel() {
+class ForecastViewModel(private val useCase: GetWeatherForecastUseCase) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UIState())
     val uiState = _uiState.asStateFlow()
 
-    private val useCase = GetWeatherForecastUseCase()
+   // private val useCase = GetWeatherForecastUseCase()
 
     init {
         getWeatherForecasts()
