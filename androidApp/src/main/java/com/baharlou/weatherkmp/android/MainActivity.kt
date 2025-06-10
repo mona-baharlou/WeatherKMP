@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,21 +25,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     val viewModel: ForecastViewModel = viewModel()
-                    /*val uiState by viewModel.uiState.collectAsState()
+                    GreetingView(Greeting().greet())
 
-                    if (uiState.loading) {
-                        Napier.d("Loading...", tag = "VIEWMODEL_RESULT")
-                    }
-
-                    if (uiState.failed != null) {
-                        Napier.d("Failed", tag = "VIEWMODEL_RESULT")
-                    }
-
-                    uiState.items.forEach {
-                        Napier.d(it.toString(), tag = "VIEWMODEL_RESULT")
-                    }
-
-*/                    GreetingView(Greeting().greet())
                 }
             }
         }
