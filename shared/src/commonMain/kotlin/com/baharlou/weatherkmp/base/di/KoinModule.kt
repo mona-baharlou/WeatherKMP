@@ -2,6 +2,8 @@ package com.baharlou.weatherkmp.base.di
 import com.baharlou.weatherkmp.BuildKonfig
 import com.baharlou.weatherkmp.repository.IWeatherRepository
 import com.baharlou.weatherkmp.repository.WeatherRepository
+import com.baharlou.weatherkmp.usecase.GetWeatherForecastUseCase
+import com.baharlou.weatherkmp.viewmodel.ForecastViewModel
 import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -61,7 +63,11 @@ val repositoryModule = module {
     single<IWeatherRepository> { WeatherRepository(get()) }
 }
 
-/*
-val viewModelRepository = vi {
+val usecaseModule = module{
 
-}*/
+    factory { GetWeatherForecastUseCase(get()) }
+}
+
+val viewModelModule = module {
+  SharedViewModel { ForecastViewModel(get()) }
+}

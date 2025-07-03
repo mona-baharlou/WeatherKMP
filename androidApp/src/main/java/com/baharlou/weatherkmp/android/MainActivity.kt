@@ -13,6 +13,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.baharlou.weatherkmp.Greeting
 import com.baharlou.weatherkmp.viewmodel.ForecastViewModel
 import io.github.aakira.napier.Napier
+import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    val viewModel: ForecastViewModel = viewModel()
+                    val viewModel: ForecastViewModel = koinViewModel()
+                   // val uiState by viewModel.uiState.collectAsState()
                     GreetingView(Greeting().greet())
 
                 }

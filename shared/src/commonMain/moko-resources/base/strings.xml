@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="temp">Temp</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
+    <string name="percentage">%s%%</string>
+    <string name="forecast_divider">5-Day Forecast</string>
+</resources>

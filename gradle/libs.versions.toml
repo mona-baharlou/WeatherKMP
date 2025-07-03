@@ -10,6 +10,7 @@ buildKonfig = "0.17.1"
 napier = "2.7.1"
 lifecycle="2.8.4"
 koin= "4.0.3"
+moko-resources ="0.25.0"
 
 
 [libraries]
@@ -33,6 +34,8 @@ lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel
 androidx-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+moko-res = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
 
 
 
@@ -53,3 +56,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 buildkonfig = { id = "com.codingfeline.buildkonfig" , version.ref = "buildKonfig"}
+multiplatform-resources = { id="dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources"}

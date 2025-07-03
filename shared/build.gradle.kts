@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.buildkonfig)
+    alias(libs.plugins.multiplatform.resources)
 }
 
 
@@ -42,6 +43,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.lifecycle.viewmodel)
             implementation(libs.koin.core)
+            api(libs.moko.res)
 
 
         }
@@ -79,4 +81,8 @@ buildkonfig {
         val apiKey:String = gradleLocalProperties(rootDir, providers).getProperty("API_KEY")
         buildConfigField(FieldSpec.Type.STRING, "API_KEY", apiKey)
     }
+}
+
+multiplatformResources {
+    resourcesPackage.set("com.baharlou.weather") // required
 }
